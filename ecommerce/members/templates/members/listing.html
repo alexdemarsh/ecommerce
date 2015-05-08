@@ -1,0 +1,31 @@
+<div class="pagination">
+    <span class="step-links">
+        {% if items.has_previous %}
+            <a href="?page={{ items.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ items.number }} of {{ items.paginator.num_pages }}.
+        </span>
+
+        <ul>
+            {% for i in items %}
+                <li> {{i}} </li>
+                <a href="/members/listing/{{ i.id }}/add/"> Add </a>
+            {% endfor %}
+        </ul>
+
+        {% if items.has_next %}
+            <a href="?page={{ items.next_page_number }}">next</a>
+        {% endif %}
+    </span>
+
+
+
+    <form action="{% url 'members:showone' %}" method="get">
+        {% csrf_token %}
+        <input name="name" value="Item name">
+    <button> search </button>
+    </form>
+
+</div>

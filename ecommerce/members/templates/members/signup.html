@@ -1,0 +1,7 @@
+<form action="{% url 'members:register' %}" method="post">
+	{% csrf_token %}
+	<input name="username" value="username">
+	<input name="email" value="email">
+	<input name="password" value="password">
+	<button> Submit </button>
+</form>
